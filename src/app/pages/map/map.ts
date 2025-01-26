@@ -1,107 +1,48 @@
-import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angular/core';
-import { ConferenceData } from '../../providers/conference-data';
-import { Platform } from '@ionic/angular';
-import { DOCUMENT} from '@angular/common';
-
-import { darkStyle } from './map-dark-style';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'page-map',
-  templateUrl: 'map.html',
-  styleUrls: ['./map.scss']
+  selector: "page-map",
+  templateUrl: "map.html",
+  styleUrls: ["./map.scss"],
 })
-export class MapPage implements AfterViewInit {
-  @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
+export class MapPage {
+  messages: { type: string; text: string }[] = [];
+  userInput: string = "";
 
-  constructor(
-    @Inject(DOCUMENT) private doc: Document,
-    public confData: ConferenceData,
-    public platform: Platform) {}
+  // Mock data for chatbot responses
+  botReplies: { keyword: string; response: string }[] = [
+    { keyword: "hello", response: "Hi there! How can I assist you today?" },
+    { keyword: "help", response: "Sure, I am here to help. What do you need?" },
+    { keyword: "bye", response: "Goodbye! Have a great day!" },
+    { keyword: "name", response: "I am your friendly chatbot!" },
+    { keyword: "thanks", response: "You are welcome!" },
+  ];
 
-  async ngAfterViewInit() {
-    const appEl = this.doc.querySelector('ion-app');
-    let isDark = false;
-    let style = [];
-    if (appEl.classList.contains('ion-palette-dark')) {
-      style = darkStyle;
+  constructor() {}
+
+  sendMessage() {
+    if (this.userInput.trim()) {
+      // Add user's message to the chat
+      this.messages.push({ type: "user", text: this.userInput });
+      this.getBotResponse(this.userInput);
+      this.userInput = "";
     }
+  }
 
-    const googleMaps = await getGoogleMaps(
-      'YOUR_API_KEY_HERE'
+  getBotResponse(userMessage: string) {
+    // Find a matching response from mock data
+    const response = this.botReplies.find((reply) =>
+      userMessage.toLowerCase().includes(reply.keyword)
     );
 
-    let map;
+    // If a match is found, respond; otherwise, use a default message
+    const botResponse = response
+      ? response.response
+      : "Sorry, I did not understand that. Can you rephrase?";
 
-    this.confData.getMap().subscribe((mapData: any) => {
-      const mapEle = this.mapElement.nativeElement;
-
-      map = new googleMaps.Map(mapEle, {
-        center: mapData.find((d: any) => d.center),
-        zoom: 16,
-        styles: style
-      });
-
-      mapData.forEach((markerData: any) => {
-        const infoWindow = new googleMaps.InfoWindow({
-          content: `<h5>${markerData.name}</h5>`
-        });
-
-        const marker = new googleMaps.Marker({
-          position: markerData,
-          map,
-          title: markerData.name
-        });
-
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
-      });
-
-      googleMaps.event.addListenerOnce(map, 'idle', () => {
-        mapEle.classList.add('show-map');
-      });
-    });
-
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'class') {
-          const el = mutation.target as HTMLElement;
-          isDark = el.classList.contains('ion-palette-dark');
-          if (map && isDark) {
-            map.setOptions({styles: darkStyle});
-          } else if (map) {
-            map.setOptions({styles: []});
-          }
-        }
-      });
-    });
-    observer.observe(appEl, {
-      attributes: true
-    });
+    // Simulate a delay for the bot's response
+    setTimeout(() => {
+      this.messages.push({ type: "bot", text: botResponse });
+    }, 1000);
   }
 }
-
-function getGoogleMaps(apiKey: string): Promise<any> {
-  const win = window as any;
-  const googleModule = win.google;
-  if (googleModule && googleModule.maps) {
-    return Promise.resolve(googleModule.maps);
-  }
-
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.31`;
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-    script.onload = () => {
-      const googleModule2 = win.google;
-      if (googleModule2 && googleModule2.maps) {
-        resolve(googleModule2.maps);
-      } else {
-        reject('google maps not available');
-      }
-    };
-  });
-}
-

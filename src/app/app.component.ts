@@ -31,12 +31,12 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Software Risk',
-      url: '/app/tabs/map',
+      url: '/app/tabs/about',
       icon: 'map'
     },
     {
       title: 'Chatbot',
-      url: '/app/tabs/about',
+      url: '/app/tabs/map',
       icon: 'information-circle'
     }
   ];

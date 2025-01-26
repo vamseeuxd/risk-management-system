@@ -4,11 +4,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { MapPage } from './map';
 import { MapPageRoutingModule } from './map-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
+    FormsModule,
     MapPageRoutingModule
   ],
   declarations: [

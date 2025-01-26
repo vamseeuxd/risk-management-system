@@ -3,10 +3,56 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Map</ion-title>
+    <ion-title>Chatbot</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div #mapCanvas class="map-canvas"></div>
+  <!-- <div #mapCanvas class="map-canvas"></div> -->
+  <div class="chat-container">
+    <div *ngFor="let message of messages" [class]="message.type">
+      <div class="chat-bubble">
+        {{ message.text }}
+      </div>
+    </div>
+  </div>
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input
+      [(ngModel)]="userInput"
+      placeholder="Type your message"
+      (keyup.enter)="sendMessage()"
+    ></ion-input>
+    <ion-button (click)="sendMessage()">Send</ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+
+<style>
+  .chat-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .user {
+    text-align: right;
+  }
+  .bot {
+    text-align: left;
+  }
+  .chat-bubble {
+    display: inline-block;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    background: #e0e0e0;
+  }
+  .user .chat-bubble {
+    background: #0084ff;
+    color: white;
+  }
+</style>

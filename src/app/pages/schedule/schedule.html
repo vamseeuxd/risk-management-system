@@ -11,7 +11,7 @@
         Favorites
       </ion-segment-button>
     </ion-segment>
-    <ion-title *ngIf="!ios && !showSearchbar">Schedule</ion-title>
+    <ion-title *ngIf="!ios && !showSearchbar">Dashboard</ion-title>
     <ion-searchbar *ngIf="showSearchbar" showCancelButton="always" [(ngModel)]="queryText" (ionInput)="updateSchedule()" (ionCancel)="showSearchbar = false" placeholder="Search"></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button *ngIf="!ios && !showSearchbar" (click)="showSearchbar = true">
@@ -40,7 +40,7 @@
 <ion-content fullscreen="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Schedule</ion-title>
+      <ion-title size="large">Dashboard</ion-title>
     </ion-toolbar>
     <ion-toolbar>
       <ion-searchbar [(ngModel)]="queryText" (ionInput)="updateSchedule()" placeholder="Search"></ion-searchbar>
@@ -79,10 +79,10 @@
   </ion-list>
 
   <ion-list-header [hidden]="shownSessions > 0">
-    No Sessions Found
+    No Risks Found
   </ion-list-header>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
+  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
     <ion-fab-button>
       <ion-icon name="share-social"></ion-icon>
     </ion-fab-button>
@@ -100,5 +100,5 @@
         <ion-icon name="logo-facebook"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>
