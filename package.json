@@ -1,8 +1,8 @@
 {
-  "name": "ionic-conference-app",
+  "name": "risk-management-system",
   "version": "0.0.0",
-  "description": "Ionic Conference App",
-  "author": "Ionic Team <hi@ionicframework.com>",
+  "description": "Risk Management System",
+  "author": "Vamsee Kalyan",
   "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/ionic-conference-app.git"
+    "url": "https://github.com/vamseeuxd/risk-management-system.git"
   },
   "private": true,
   "dependencies": {

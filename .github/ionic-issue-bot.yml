@@ -38,7 +38,7 @@ lockClosed:
   maxIssuesPerRun: 100
   message: >
     Thanks for the issue! This issue is being locked to prevent comments that are not relevant to the original issue.
-    If this is still an issue with the latest version of the Ionic Conference App, please create a new issue and ensure
+    If this is still an issue with the latest version of the Risk Management System, please create a new issue and ensure
     the template is fully filled out.
   dryRun: false
 
@@ -54,7 +54,7 @@ stale:
   label: "ionitron: stale issue"
   message: >
     Thanks for the issue! This issue is being closed due to inactivity. If this is still
-    an issue with the latest version of the Ionic Conference App, please create a new issue
+    an issue with the latest version of the Risk Management System, please create a new issue
     and ensure the template is fully filled out.
 
 
@@ -72,7 +72,7 @@ noReply:
   exemptMilestones: true
   message: >
     Thanks for the issue! This issue is being closed due to the lack of a reply. If this is still
-    an issue with the latest version of the Ionic Conference App, please create a new issue
+    an issue with the latest version of the Risk Management System, please create a new issue
     and ensure the template is fully filled out.
 
 
@@ -87,7 +87,7 @@ wrongRepo:
       repo: ionic
       message: >
         Thanks for the issue! We use this issue tracker exclusively for bug reports and feature requests
-        associated with the Ionic Conference App. It appears that this issue is associated with the Ionic Framework.
+        associated with the Risk Management System. It appears that this issue is associated with the Ionic Framework.
         I am moving this issue to the Ionic Framework repository. Please track this issue over there.
 
 
@@ -96,7 +96,7 @@ wrongRepo:
       repo: ionic-cli
       message: >
         Thanks for the issue! We use this issue tracker exclusively for bug reports and feature requests
-        associated with the Ionic Conference App. It appears that this issue is associated with the Ionic CLI.
+        associated with the Risk Management System. It appears that this issue is associated with the Ionic CLI.
         I am moving this issue to the Ionic CLI repository. Please track this issue over there.
 
 
@@ -105,7 +105,7 @@ wrongRepo:
       repo: ionic-docs
       message: >
         Thanks for the issue! We use this issue tracker exclusively for bug reports and feature requests
-        associated with the Ionic Conference App. It appears that this issue is associated with the Ionic Documentation.
+        associated with the Risk Management System. It appears that this issue is associated with the Ionic Documentation.
         I am moving this issue to the Ionic Docs repository. Please track this issue over there.
 
 
@@ -114,7 +114,7 @@ wrongRepo:
       repo: stencil
       message: >
         Thanks for the issue! We use this issue tracker exclusively for bug reports and feature requests
-        associated with the Ionic Conference App. It appears that this issue is associated with Stencil.
+        associated with the Risk Management System. It appears that this issue is associated with Stencil.
         I am moving this issue to the Stencil repository. Please track this issue over there.
 
 
@@ -123,7 +123,7 @@ wrongRepo:
       repo: ionic-native
       message: >
         Thanks for the issue! We use this issue tracker exclusively for bug reports and feature requests
-        associated with the Ionic Conference App. It appears that this issue is associated with Ionic Native.
+        associated with the Risk Management System. It appears that this issue is associated with Ionic Native.
         I am moving this issue to the Ionic Native repository. Please track this issue over there.
 
 

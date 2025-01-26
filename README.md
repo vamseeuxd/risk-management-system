@@ -1,88 +1,60 @@
-# Ionic Angular Conference Application
+# Risk Management System App
 
-This application is purely a kitchen-sink demo of the Ionic Framework and Angular.
-
-**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application. Please go through the steps in [CONTRIBUTING](https://github.com/ionic-team/ionic-conference-app/blob/main/.github/CONTRIBUTING.md) before submitting an issue.
-
-## React and Vue Versions
-
-We've built versions of this Conference app in React and Vue for developers that would prefer to use one of those framework options:
-
-[https://github.com/ionic-team/ionic-react-conference-app](https://github.com/ionic-team/ionic-react-conference-app)
-
-[https://github.com/ionic-team/ionic-vue-conference-app](https://github.com/ionic-team/ionic-vue-conference-app)
+This is a responsive and interactive **Risk Management System App** developed using **Ionic Framework** and **Angular**. The app allows users to assess risks, manage data sources, monitor workflows, and view detailed analytics in a user-friendly interface.
 
 ## Table of Contents
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [App Preview](#app-preview)
-- [Deploying](#deploying)
-  - [Progressive Web App](#progressive-web-app)
-  - [Android](#android)
-  - [iOS](#ios)
 
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [App Structure](#app-structure)
+7. [Screens](#screens)
+8. [Contributing](#contributing)
+9. [License](#license)
 
-## Getting Started
+---
 
-* [Download the installer](https://nodejs.org/) for Node LTS.
-* Install the ionic CLI globally: `npm install -g ionic`
-* Clone this repository: `git clone https://github.com/ionic-team/ionic-conference-app.git`.
-* Run `npm install` from the project root.
-* Run `ionic serve` in a terminal from the project root.
-* Profit. :tada:
+## Overview
 
-_Note: See [How to Prevent Permissions Errors](https://docs.npmjs.com/getting-started/fixing-npm-permissions) if you are running into issues when trying to install packages globally._
+The Risk Management System App is designed to provide users with tools to evaluate and manage risks related to vendors, software, and workflows. It includes interactive dashboards, risk scoring mechanisms, and analytics to ensure a comprehensive risk management process.
 
-## Contributing
+---
 
-See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/main/.github/CONTRIBUTING.md) :tada::+1:
+## Features
 
+- **Login & Registration**: Secure authentication with Single Sign-On (SSO) support.
+- **Dashboard**: Displays risk trends and alerts for quick insights.
+- **Vendor Risk Assessment**: Enables document upload and risk scoring.
+- **Software Risk Assessment**: Analyzes software dependencies and associated risks.
+- **Risk Query Chatbot**: Interactive chatbot for querying risk-related data.
+- **Risk Details**: Detailed breakdown of risks for vendors or software.
+- **Data Source Management**: Manage external data sources and monitor connectivity.
+- **Workflow Management**: Create and track workflows for onboarding vendors or software.
+- **Alerts & Notifications**: Get real-time alerts and manage them based on severity.
+- **Analytics & Reporting**: Generate visual analytics and export reports.
+- **Admin Settings**: Manage user roles, permissions, and system configurations.
 
-## App Preview
+---
 
-### [Menu](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/app.component.html)
+## Technologies Used
 
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android Menu](/resources/screenshots/android-menu.png) | ![iOS Menu](/resources/screenshots/ios-menu.png) |
+- **Frontend**: [Ionic Framework](https://ionicframework.com/), [Angular](https://angular.io/)
+- **Backend**: Firebase/Firestore (Optional for backend APIs)
+- **Styling**: SCSS, Ionic Components, and Bootstrap
+- **Charts**: Chart.js or D3.js (for risk trend visualization)
+- **Chatbot**: Basic chatbot logic with predefined queries
+- **File Upload**: Drag-and-drop file upload integration
 
+---
 
-### [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/pages/schedule/schedule.html)
+## Installation
 
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android Schedule](/resources/screenshots/android-schedule.png) | ![iOS Schedule](/resources/screenshots/ios-schedule.png) |
+### Prerequisites
 
-### [Speakers Page](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/pages/speaker-list/speaker-list.html)
-
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android Speakers](/resources/screenshots/android-speakers.png) | ![iOS Speakers](/resources/screenshots/ios-speakers.png) |
-
-### [Speaker Detail Page](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/pages/speaker-detail/speaker-detail.html)
-
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android Speaker Detail](/resources/screenshots/android-speaker-detail.png) | ![iOS Speaker Detail](/resources/screenshots/ios-speaker-detail.png) |
-
-### [About Page](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/pages/about/about.html)
-
-| Material Design  | iOS  |
-| -----------------| -----|
-| ![Android About](/resources/screenshots/android-about.png) | ![iOS About](/resources/screenshots/ios-about.png) |
-
-
-## Deploying
-
-### Progressive Web App
-
-1. Run `ionic build --prod`
-2. Push the `www` folder to your hosting service
-
-### Android
-
-1. Run `ionic cordova run android --prod`
-
-### iOS
-
-1. Run `ionic cordova run ios --prod`
+1. Node.js (v14 or higher)
+2. Angular CLI
+3. Ionic CLI
+4. Firebase CLI (if Firebase is used for backend)
+5. IDE: Visual Studio Code (recommended)
