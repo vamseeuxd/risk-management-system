@@ -5,7 +5,7 @@ describe.skip('Tutorial Page', () => {
   });
 
   it('visits the tutorial page', () => {
-    cy.contains('Welcome to ICA');
+    cy.contains('Welcome to Risk Management System App');
   })
 
   it('navigates to the schedule via the skip button', () => {
