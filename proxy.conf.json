@@ -1,0 +1,7 @@
+{
+  "/analyze_security": {
+    "target": "https://97e2-2406-7400-1c3-6062-c91a-dbe0-4c3-7428.ngrok-free.app",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

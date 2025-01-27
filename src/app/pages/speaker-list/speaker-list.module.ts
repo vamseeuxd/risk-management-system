@@ -4,11 +4,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { SpeakerListPage } from './speaker-list';
 import { SpeakerListPageRoutingModule } from './speaker-list-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
+    HttpClientModule,
+    FormsModule,
     SpeakerListPageRoutingModule
   ],
   declarations: [SpeakerListPage],
