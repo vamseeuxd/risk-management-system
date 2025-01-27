@@ -4,9 +4,9 @@ import { HttpClient } from "@angular/common/http";
 import { LoadingController } from "@ionic/angular";
 
 @Component({
-  selector: "page-speaker-list",
-  templateUrl: "speaker-list.html",
-  styleUrls: ["./speaker-list.scss"],
+  selector: "page-vendor-risk",
+  templateUrl: "vendor-risk.html",
+  styleUrls: ["./vendor-risk.scss"],
 })
 export class SpeakerListPage {
   vendorName = "";

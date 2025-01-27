@@ -4,7 +4,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { ActionSheetController } from '@ionic/angular';
 
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
-import { SpeakerListPage } from './speaker-list';
+import { SpeakerListPage } from './vendor-risk';
 import { ConferenceData } from '../../providers/conference-data';
 
 const confDataSub = {};
