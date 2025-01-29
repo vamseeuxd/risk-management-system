@@ -7,7 +7,7 @@ import { TabsPageRoutingModule } from './tabs-page-routing.module';
 
 import { SoftwareRiskModule } from '../software-risk/software-risk.module';
 import { ChatbotModule } from '../chatbot/chatbot.module';
-import { ScheduleModule } from '../schedule/schedule.module';
+import { DashboardModule } from '../dashboard/dashboard.module';
 import { SessionDetailModule } from '../session-detail/session-detail.module';
 import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
 import { SpeakerListModule } from '../vendor-risk/vendor-risk.module';
@@ -18,7 +18,7 @@ import { SpeakerListModule } from '../vendor-risk/vendor-risk.module';
     CommonModule,
     IonicModule,
     ChatbotModule,
-    ScheduleModule,
+    DashboardModule,
     SessionDetailModule,
     SpeakerDetailModule,
     SpeakerListModule,
