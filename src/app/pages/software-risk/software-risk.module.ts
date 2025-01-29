@@ -3,18 +3,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { AboutPage } from './about';
+import { SoftwareRiskPage } from './software-risk';
 import { PopoverPage } from '../about-popover/about-popover';
-import { AboutPageRoutingModule } from './about-routing.module';
+import { SoftwareRiskRoutingModule } from './software-risk-routing.module';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
-        AboutPageRoutingModule
+        SoftwareRiskRoutingModule
     ],
-    declarations: [AboutPage, PopoverPage],
-    bootstrap: [AboutPage]
+    declarations: [SoftwareRiskPage, PopoverPage],
+    bootstrap: [SoftwareRiskPage]
 })
-export class AboutModule {}
+export class SoftwareRiskModule {}

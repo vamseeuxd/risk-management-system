@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
-import { MapPage } from './map';
-import { MapPageRoutingModule } from './map-routing.module';
+import { ChatbotPage } from './chatbot';
+import { ChatbotPageRoutingModule } from './chatbot-routing.module';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -11,10 +11,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     IonicModule,
     FormsModule,
-    MapPageRoutingModule
+    ChatbotPageRoutingModule
   ],
   declarations: [
-    MapPage,
+    ChatbotPage,
   ]
 })
-export class MapModule { }
+export class ChatbotModule { }

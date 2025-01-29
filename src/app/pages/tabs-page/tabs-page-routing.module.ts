@@ -44,7 +44,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../map/map.module').then(m => m.MapModule)
+            loadChildren: () => import('../chatbot/chatbot.module').then(m => m.ChatbotModule)
           }
         ]
       },
@@ -53,7 +53,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../about/about.module').then(m => m.AboutModule)
+            loadChildren: () => import('../software-risk/software-risk.module').then(m => m.SoftwareRiskModule)
           }
         ]
       },

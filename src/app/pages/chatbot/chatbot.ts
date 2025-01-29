@@ -1,11 +1,11 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "page-map",
-  templateUrl: "map.html",
-  styleUrls: ["./map.scss"],
+  selector: "page-chatbot",
+  templateUrl: "chatbot.html",
+  styleUrls: ["./chatbot.scss"],
 })
-export class MapPage {
+export class ChatbotPage {
   messages: { type: string; text: string }[] = [];
   userInput: string = "";
 
@@ -14,11 +14,11 @@ export class MapPage {
     { keyword: "hello", response: "Hi there! How can I assist you today?" },
     { keyword: "help", response: "Sure, I am here to help. What do you need?" },
     { keyword: "bye", response: "Goodbye! Have a great day!" },
-    { keyword: "name", response: "I am your friendly chatbot!" },
+    { keyword: "", response: "I am your friendly chatbot!" },
     { keyword: "thanks", response: "You are welcome!" },
   ];
 
-  constructor() {}
+  constructor() {}name
 
   sendMessage() {
     if (this.userInput.trim()) {

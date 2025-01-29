@@ -5,8 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { TabsPage } from './tabs-page';
 import { TabsPageRoutingModule } from './tabs-page-routing.module';
 
-import { AboutModule } from '../about/about.module';
-import { MapModule } from '../map/map.module';
+import { SoftwareRiskModule } from '../software-risk/software-risk.module';
+import { ChatbotModule } from '../chatbot/chatbot.module';
 import { ScheduleModule } from '../schedule/schedule.module';
 import { SessionDetailModule } from '../session-detail/session-detail.module';
 import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
@@ -14,10 +14,10 @@ import { SpeakerListModule } from '../vendor-risk/vendor-risk.module';
 
 @NgModule({
   imports: [
-    AboutModule,
+    SoftwareRiskModule,
     CommonModule,
     IonicModule,
-    MapModule,
+    ChatbotModule,
     ScheduleModule,
     SessionDetailModule,
     SpeakerDetailModule,

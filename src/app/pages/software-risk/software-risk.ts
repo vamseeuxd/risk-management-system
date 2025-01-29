@@ -5,11 +5,11 @@ import { PopoverController } from '@ionic/angular';
 import { PopoverPage } from '../about-popover/about-popover';
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html',
-  styleUrls: ['./about.scss'],
+  selector: 'page-software-risk',
+  templateUrl: 'software-risk.html',
+  styleUrls: ['./software-risk.scss'],
 })
-export class AboutPage {
+export class SoftwareRiskPage {
   location = 'madison';
   conferenceDate = '2047-05-17';
 
