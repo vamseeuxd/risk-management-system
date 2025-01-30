@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { SoftwareRiskPage } from './software-risk';
-import { SoftwareRiskRoutingModule } from './software-risk-routing.module';
+import { DocumentRiskPage } from './document-risk';
+import { DocumentRiskRoutingModule } from './document-risk-routing.module';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
-        SoftwareRiskRoutingModule
+        DocumentRiskRoutingModule
     ],
-    declarations: [SoftwareRiskPage],
-    bootstrap: [SoftwareRiskPage]
+    declarations: [DocumentRiskPage],
+    bootstrap: [DocumentRiskPage]
 })
-export class SoftwareRiskModule {}
+export class DocumentRiskModule {}

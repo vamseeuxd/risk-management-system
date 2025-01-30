@@ -26,14 +26,19 @@ export class AppComponent implements OnInit {
       icon: "calendar",
     },
     {
-      title: "Vendor Risk",
+      title: "Third Party Cyber Risk",
       url: "/app/tabs/speakers",
       icon: "people",
     },
     {
-      title: "Software Risk",
+      title: "Software Cyber Risk",
       url: "/app/tabs/about",
       icon: "map",
+    },
+    {
+      title: "Document Cyber Risk",
+      url: "/app/tabs/document",
+      icon: "document",
     },
     {
       title: "Chatbot",

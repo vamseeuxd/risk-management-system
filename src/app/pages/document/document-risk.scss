@@ -1,0 +1,107 @@
+.speaker-card {
+  display: flex;
+
+  flex-direction: column;
+}
+
+/* Due to the fact the cards are inside of columns the margins don't overlap
+ * properly so we want to remove the extra margin between cards
+ */
+ion-col:not(:last-of-type) .speaker-card {
+  margin-bottom: 0;
+}
+
+.speaker-card .speaker-item {
+  --min-height: 85px;
+}
+
+.speaker-card .speaker-item h2 {
+  font-size: 18px;
+  font-weight: 500;
+
+  letter-spacing: 0.02em;
+}
+
+.speaker-card .speaker-item p {
+  font-size: 13px;
+
+  letter-spacing: 0.02em;
+}
+
+.speaker-card ion-card-header {
+  padding: 0;
+}
+
+.speaker-card ion-card-content {
+  flex: 1 1 auto;
+
+  padding: 0;
+}
+
+.ios ion-list {
+  margin-bottom: 10px;
+}
+
+.md ion-list {
+  padding: 0;
+
+  border-top: 1px solid var(--ion-color-step-150, #d7d8da);
+}
+
+.card h3 {
+  font-size: 22px;
+  font-weight: 600;
+
+}
+
+.drop_box {
+  margin: 10px 0;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px dotted #a3a3a3;
+  border-radius: 5px;
+}
+
+.drop_box h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2e2e2e;
+}
+
+.drop_box p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #a3a3a3;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #005af0;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #005af0;
+  padding: 10px 20px;
+  border: none;
+  outline: 1px solid #010101;
+}
+.form input {
+  margin: 10px 0;
+  width: 100%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}

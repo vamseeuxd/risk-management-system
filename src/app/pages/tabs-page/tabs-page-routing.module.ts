@@ -58,6 +58,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'document',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../document/document-risk.module').then(m => m.DocumentRiskModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/app/tabs/schedule',
         pathMatch: 'full'

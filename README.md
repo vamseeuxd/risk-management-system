@@ -26,8 +26,8 @@ The Risk Management System App is designed to provide users with tools to evalua
 
 - **Login & Registration**: Secure authentication with Single Sign-On (SSO) support.
 - **Dashboard**: Displays risk trends and alerts for quick insights.
-- **Vendor Risk Assessment**: Enables document upload and risk scoring.
-- **Software Risk Assessment**: Analyzes software dependencies and associated risks.
+- **Third Party Cyber Risk Assessment**: Enables document upload and risk scoring.
+- **Software Cyber Risk Assessment**: Analyzes software dependencies and associated risks.
 - **Risk Query Chatbot**: Interactive chatbot for querying risk-related data.
 - **Risk Details**: Detailed breakdown of risks for vendors or software.
 - **Data Source Management**: Manage external data sources and monitor connectivity.

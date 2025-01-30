@@ -3,35 +3,29 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Software Risk</ion-title>
+    <ion-title>Software Cyber Risk</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Software Risk</ion-title>
+      <ion-title size="large">Software Cyber Risk</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div class="ion-padding">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Analyze Software Security</ion-card-title>
+        <ion-card-title>Analyze Software Cyber Risk</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-        <ion-input
-          label="Enter Software Name"
-          label-placement="floating"
-          fill="outline"
-          [(ngModel)]="softwareName"
-          placeholder="Enter Software Name"
-        ></ion-input>
+        <ion-input label="Enter Product Name" label-placement="floating" fill="outline" [(ngModel)]="softwareName" placeholder="Enter Product Name" ></ion-input>
         <br />
-        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="!softwareName"
-          >Analyze Software Security</ion-button
-        >
+        <ion-input label="Enter Software Tech Stack" label-placement="floating" fill="outline" [(ngModel)]="softwareTechStack" placeholder="Enter Software Tech Stack" ></ion-input>
+        <br />
+        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="!softwareName" >Analyze Software Security</ion-button >
       </ion-card-content>
     </ion-card>
   </div>
@@ -46,7 +40,7 @@
     <ng-template>
       <ion-card>
         <ion-card-header>
-          <ion-card-title><span style="color: #ae7000;">{{softwareName}}</span> Security Details</ion-card-title>
+          <ion-card-title><span style="color: #ae7000;">{{softwareName}}</span> Software Cyber Risk Details</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>

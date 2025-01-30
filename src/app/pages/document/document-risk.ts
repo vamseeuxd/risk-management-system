@@ -1,17 +1,16 @@
 import { Component } from "@angular/core";
 
-import { LoadingController } from "@ionic/angular";
+import { LoadingController, PopoverController } from "@ionic/angular";
 
 import { HttpClient } from "@angular/common/http";
 
 @Component({
-  selector: "page-software-risk",
-  templateUrl: "software-risk.html",
-  styleUrls: ["./software-risk.scss"],
+  selector: "page-document-risk",
+  templateUrl: "document-risk.html",
+  styleUrls: ["./document-risk.scss"],
 })
-export class SoftwareRiskPage {
-  softwareName = "";
-  softwareTechStack = "";
+export class DocumentRiskPage {
+  documentName = "";
   isModalOpen = false;
   analysis = "";
   risk_level = "";
@@ -20,7 +19,7 @@ export class SoftwareRiskPage {
     this.analysis = "";
     this.risk_level = "";
     const loading = await this.loadingCtrl.create({
-      message: "Please wait while we analyze the security of the software...",
+      message: "Please wait while we analyze the security of the document...",
       duration: 2000,
     });
 

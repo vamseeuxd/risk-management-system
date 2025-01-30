@@ -3,35 +3,50 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Third Party Cyber Risk</ion-title>
+    <ion-title>Document Cyber Risk</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Third Party Cyber Risk</ion-title>
+      <ion-title size="large">Document Cyber Risk</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div class="ion-padding">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Analyze Third Party Cyber Risk</ion-card-title>
+        <ion-card-title>Analyze Document Cyber Risk</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
         <ion-input
-          label="Enter Third Party Name"
+          label="Enter Document Name"
           label-placement="floating"
           fill="outline"
-          [(ngModel)]="vendorName"
-          placeholder="Enter Third Party Name"
+          type="file"
+          [(ngModel)]="documentName"
+          placeholder="Enter Document Name"
         ></ion-input>
         <br />
-        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="!vendorName"
-          >Analyze Third Party Cyber Risk</ion-button
-        >
+        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="!documentName" >Analyze Document Security</ion-button >
+
+
+
+        <div class="card">
+          <h3>Upload Document</h3>
+          <div class="drop_box">
+            <header>
+              <h4>Select File here</h4>
+            </header>
+            <p>Files Supported: PDF, TEXT, DOC , DOCX</p>
+            <input #inputRef type="file" hidden accept=".doc,.docx,.pdf" id="fileID" style="display:none;">
+            <button (click)="inputRef.click()" class="btn">Choose File</button>
+          </div>
+        </div>
+
+
       </ion-card-content>
     </ion-card>
   </div>
@@ -40,13 +55,13 @@
   <ion-modal
     [(isOpen)]="isModalOpen"
     [initialBreakpoint]="0.7"
-    (ionModalDidDismiss)="isModalOpen = false;vendorName='';analysis='';risk_level='';"
+    (ionModalDidDismiss)="isModalOpen = false;documentName='';analysis='';risk_level='';"
     [breakpoints]="[0, 0.7]"
   >
     <ng-template>
       <ion-card>
         <ion-card-header>
-          <ion-card-title><span uppercase style="color: #ae7000;">{{vendorName}}</span> Third Party Cyber Risk Details</ion-card-title>
+          <ion-card-title><span style="color: #ae7000;">{{documentName}}</span> Document Cyber Risk Details</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
@@ -65,7 +80,7 @@
             </ion-item>
           </ion-list>
         </ion-card-content>
-        <ion-button  fill="clear" (click)="isModalOpen = false;vendorName='';analysis='';risk_level='';">Close</ion-button>
+        <ion-button  fill="clear" (click)="isModalOpen = false;documentName='';analysis='';risk_level='';">Close</ion-button>
       </ion-card>
     </ng-template>
   </ion-modal>
