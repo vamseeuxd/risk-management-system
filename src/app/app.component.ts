@@ -9,6 +9,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { Storage } from '@ionic/storage-angular';
 
 import { UserData } from './providers/user-data';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private storage: Storage,
     private userData: UserData,
+    private swUpdate: SwUpdate,
     private toastCtrl: ToastController,
   ) {
     this.initializeApp();
@@ -58,7 +60,7 @@ export class AppComponent implements OnInit {
     this.checkLoginStatus();
     this.listenForLoginEvents();
 
-    /* this.swUpdate.versionUpdates.subscribe(async res => {
+    this.swUpdate.versionUpdates.subscribe(async res => {
       const toast = await this.toastCtrl.create({
         message: 'Update available!',
         position: 'bottom',
@@ -76,7 +78,7 @@ export class AppComponent implements OnInit {
         .onDidDismiss()
         .then(() => this.swUpdate.activateUpdate())
         .then(() => window.location.reload());
-    }); */
+    });
   }
 
   initializeApp() {
