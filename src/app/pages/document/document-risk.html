@@ -21,18 +21,6 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-input
-          label="Enter Document Name"
-          label-placement="floating"
-          fill="outline"
-          type="file"
-          [(ngModel)]="documentName"
-          placeholder="Enter Document Name"
-        ></ion-input>
-        <br />
-        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="!documentName" >Analyze Document Security</ion-button >
-
-
 
         <div class="card">
           <h3>Upload Document</h3>
@@ -41,10 +29,13 @@
               <h4>Select File here</h4>
             </header>
             <p>Files Supported: PDF, TEXT, DOC , DOCX</p>
-            <input #inputRef type="file" hidden accept=".doc,.docx,.pdf" id="fileID" style="display:none;">
-            <button (click)="inputRef.click()" class="btn">Choose File</button>
+            <input #inputRef type="file" (change)="onDocsSelection($event)" multiple hidden accept=".doc,.docx,.pdf,.txt" id="fileID" style="display:none;">
+            <button (click)="inputRef.click()" class="btn">Select Documents</button>
           </div>
         </div>
+
+        <br />
+        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="!documentName" >Analyze Document Security</ion-button >
 
 
       </ion-card-content>

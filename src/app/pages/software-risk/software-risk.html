@@ -25,7 +25,7 @@
         <br />
         <ion-input label="Enter Software Tech Stack" label-placement="floating" fill="outline" [(ngModel)]="softwareTechStack" placeholder="Enter Software Tech Stack" ></ion-input>
         <br />
-        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="!softwareName" >Analyze Software Security</ion-button >
+        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="softwareName.trim().length === 0" >Analyze Software Security</ion-button >
       </ion-card-content>
     </ion-card>
   </div>

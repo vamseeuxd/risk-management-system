@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { LoadingController } from "@ionic/angular";
+import { AlertController, LoadingController } from "@ionic/angular";
 
 import { HttpClient } from "@angular/common/http";
 
@@ -15,7 +15,11 @@ export class SoftwareRiskPage {
   isModalOpen = false;
   analysis = "";
   risk_level = "";
-  constructor(public http: HttpClient, public loadingCtrl: LoadingController) {}
+  constructor(
+    public http: HttpClient,
+    public loadingCtrl: LoadingController,
+    private alertController: AlertController
+  ) {}
   async analyzeSecurity() {
     this.analysis = "";
     this.risk_level = "";
@@ -25,23 +29,39 @@ export class SoftwareRiskPage {
     });
 
     loading.present();
-    setTimeout(() => {
-      this.analysis =
-        "Cognizant has faced several security breaches, including a ransomware attack in 2020 that affected its operations.";
-      this.risk_level =
-        "These incidents highlight the need for Cognizant to enhance its cybersecurity measures to protect client and employee data.";
+    /* setTimeout(() => {
+      this.analysis = "Cognizant has faced several security breaches, including a ransomware attack in 2020 that affected its operations.";
+      this.risk_level = "These incidents highlight the need for Cognizant to enhance its cybersecurity measures to protect client and employee data.";
       this.isModalOpen = true;
       loading.dismiss();
-    }, 2000);
+    }, 2000); */
     this.http
       .post(
-        "https://97e2-2406-7400-1c3-6062-c91a-dbe0-4c3-7428.ngrok-free.app/analyze_security",
+        "https://a1b3-2406-7400-1c3-c726-5c3c-eefe-23fb-647e.ngrok-free.app/check_vulnerability",
         {
-          text: "cognizant",
+          product: this.softwareName,
+          software: this.softwareTechStack,
         }
       )
-      .subscribe((data) => {
-        console.log(data);
-      });
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.analysis =
+            "Cognizant has faced several security breaches, including a ransomware attack in 2020 that affected its operations.";
+          this.risk_level =
+            "These incidents highlight the need for Cognizant to enhance its cybersecurity measures to protect client and employee data.";
+          this.isModalOpen = true;
+          loading.dismiss();
+        },
+        async (error) => {
+          loading.dismiss();
+          const alert = await this.alertController.create({
+            header: "Error",
+            message: "Error occurred while analyzing the security of the software",
+            buttons: ["OK"],
+          });
+          await alert.present();
+        }
+      );
   }
 }

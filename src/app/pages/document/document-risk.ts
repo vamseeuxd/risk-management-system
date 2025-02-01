@@ -14,6 +14,7 @@ export class DocumentRiskPage {
   isModalOpen = false;
   analysis = "";
   risk_level = "";
+  selectedFile: File[] = [];
   constructor(public http: HttpClient, public loadingCtrl: LoadingController) {}
   async analyzeSecurity() {
     this.analysis = "";
@@ -42,5 +43,9 @@ export class DocumentRiskPage {
       .subscribe((data) => {
         console.log(data);
       });
+  }
+  onDocsSelection($event) {
+    console.log($event.currentTarget.files);
+    this.selectedFile = $event.currentTarget.files;
   }
 }
