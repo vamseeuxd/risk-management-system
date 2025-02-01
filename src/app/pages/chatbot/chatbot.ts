@@ -1,4 +1,6 @@
+import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
+import { AlertController, LoadingController } from "@ionic/angular";
 
 @Component({
   selector: "page-chatbot",
@@ -18,15 +20,52 @@ export class ChatbotPage {
     { keyword: "thanks", response: "You are welcome!" },
   ];
 
-  constructor() {}name
+  constructor(
+    public http: HttpClient,
+    public loadingCtrl: LoadingController,
+    private alertController: AlertController
+  ) {}
 
   sendMessage() {
     if (this.userInput.trim()) {
       // Add user's message to the chat
-      this.messages.push({ type: "user", text: this.userInput });
-      this.getBotResponse(this.userInput);
-      this.userInput = "";
+      // this.messages.push({ type: "user", text: this.userInput });
+      // this.getBotResponse(this.userInput);
+      // this.userInput = "";
+      this.chat(this.userInput);
     }
+  }
+
+  async chat(userInput: string) {
+    const loading = await this.loadingCtrl.create({
+      message: "Please wait...",
+      duration: null,
+    });
+    loading.present();
+    this.messages.push({ type: "user", text: this.userInput });
+    this.userInput = "";
+    this.http
+      .post(
+        "https://a1b3-2406-7400-1c3-c726-5c3c-eefe-23fb-647e.ngrok-free.app/chat",
+        { query: userInput }
+      )
+      .subscribe(
+        (data: any) => {
+          loading.dismiss();
+          console.log(data);
+          this.messages.push({ type: "bot", text: data.response });
+        },
+        async (error) => {
+          loading.dismiss();
+          const alert = await this.alertController.create({
+            header: "Error",
+            message:
+              "Error occurred while analyzing the security of the software",
+            buttons: ["OK"],
+          });
+          await alert.present();
+        }
+      );
   }
 
   getBotResponse(userMessage: string) {

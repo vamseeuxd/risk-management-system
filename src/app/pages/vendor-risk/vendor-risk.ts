@@ -22,17 +22,9 @@ export class SpeakerListPage {
   async analyzeSecurity() {
     this.analysis = "";
     this.risk_level = "";
-    const loading = await this.loadingCtrl.create({
-      message: "Please wait while we analyze the security of the vendor...",
-      duration: 2000,
-    });
-
+    const loading = await this.loadingCtrl.create({ message: "Please wait while we analyze the security of the vendor...", duration: 2000, });
     loading.present();
-    this.http
-      .post(
-        "https://a1b3-2406-7400-1c3-c726-5c3c-eefe-23fb-647e.ngrok-free.app/analyze_security",
-        { text: this.vendorName }
-      )
+    this.http .post( "https://a1b3-2406-7400-1c3-c726-5c3c-eefe-23fb-647e.ngrok-free.app/analyze_security", { text: this.vendorName } )
       .subscribe(
         (data: any) => {
           this.analysis = data.analysis;
