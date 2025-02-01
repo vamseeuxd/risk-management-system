@@ -23,17 +23,17 @@ export class AppComponent implements OnInit {
     {
       title: "Dashboard",
       url: "/app/tabs/schedule",
-      icon: "calendar",
+      icon: "bar-chart",
     },
     {
       title: "Third Party Cyber Risk",
       url: "/app/tabs/speakers",
-      icon: "people",
+      icon: "share-social",
     },
     {
       title: "Software Cyber Risk",
       url: "/app/tabs/about",
-      icon: "map",
+      icon: "aperture",
     },
     {
       title: "Document Cyber Risk",
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
     {
       title: "Chatbot",
       url: "/app/tabs/map",
-      icon: "information-circle",
+      icon: "chatbox",
     },
   ];
   loggedIn = false;

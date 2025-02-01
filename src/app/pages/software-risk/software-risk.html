@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Software Cyber Risk</ion-title>
+    <ion-title><ion-icon name="aperture"></ion-icon>&nbsp;&nbsp;Software Cyber Risk</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,45 +21,93 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-input label="Enter Product Name" label-placement="floating" fill="outline" [(ngModel)]="softwareName" placeholder="Enter Product Name" ></ion-input>
+        <ion-input
+          label="Enter Product Name"
+          label-placement="floating"
+          fill="outline"
+          [(ngModel)]="softwareName"
+          placeholder="Enter Product Name"
+        ></ion-input>
         <br />
-        <ion-input label="Enter Software Tech Stack" label-placement="floating" fill="outline" [(ngModel)]="softwareTechStack" placeholder="Enter Software Tech Stack" ></ion-input>
+        <ion-input
+          label="Enter Software Tech Stack"
+          label-placement="floating"
+          fill="outline"
+          [(ngModel)]="softwareTechStack"
+          placeholder="Enter Software Tech Stack"
+        ></ion-input>
         <br />
-        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="softwareName.trim().length === 0" >Analyze Software Security</ion-button >
+        <ion-button
+          expand="block"
+          (click)="analyzeSecurity()"
+          [disabled]="softwareName.trim().length === 0"
+          >Analyze Software Security</ion-button
+        >
       </ion-card-content>
     </ion-card>
   </div>
 
-
   <ion-modal
     [(isOpen)]="isModalOpen"
     [initialBreakpoint]="0.7"
-    (ionModalDidDismiss)="isModalOpen = false;softwareName='';analysis='';risk_level='';"
+    (ionModalDidDismiss)="isModalOpen = false;softwareName='';is_vulnerable = ''; severity = ''; explanation = '';"
     [breakpoints]="[0, 0.7]"
   >
     <ng-template>
       <ion-card>
         <ion-card-header>
-          <ion-card-title><span style="color: #ae7000;">{{softwareName}}</span> Software Cyber Risk Details</ion-card-title>
+          <ion-card-title
+            ><span style="color: #ae7000">{{softwareName|uppercase}} Software Cyber Risk Details</span></ion-card-title
+          >
         </ion-card-header>
 
         <ion-card-content>
           <ion-list>
             <ion-item>
               <ion-label>
-                <h2><b>Analysis : </b></h2>
-                <h2>{{analysis}}</h2>
+                <h2>
+                  <!-- ********** is_vulnerable ********** -->
+                  <ion-chip *ngIf="is_vulnerable === 'NO'" color="success"
+                    ><b>Is Vulnerable : </b>NO</ion-chip
+                  >
+                  <ion-chip *ngIf="is_vulnerable === 'YES'" color="danger"
+                    ><b>Is Vulnerable : </b>YES</ion-chip
+                  >
+                  <!-- ********** is_vulnerable ********** -->
+
+                  <!-- ********** Severity ********** -->
+                  <ion-chip *ngIf="severity === 'LOW'" color="success"
+                    ><b>Severity : </b>LOW</ion-chip
+                  >
+                  <ion-chip *ngIf="severity === 'MEDIUM'" color="warning"
+                    ><b>Severity : </b>MEDIUM</ion-chip
+                  >
+                  <ion-chip *ngIf="severity === 'HIGH'" color="danger"
+                    ><b>Severity : </b>HIGH</ion-chip
+                  >
+                  <!-- ********** Severity ********** -->
+
+                  <!-- ********** Severity ********** -->
+                  <ion-chip *ngIf="cvss_score <= 3" color="success" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
+                  <ion-chip *ngIf="cvss_score > 3 &&  cvss_score <= 7" color="warning" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
+                  <ion-chip *ngIf="cvss_score > 7" color="danger" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
+                  <!-- ********** Severity ********** -->
+                </h2>
               </ion-label>
             </ion-item>
             <ion-item>
               <ion-label>
-                <h2><b>Risk Level : </b></h2>
-                <h2>{{risk_level}}</h2>
+                <h2><b>Explanation : </b></h2>
+                <h2>{{explanation}}</h2>
               </ion-label>
             </ion-item>
           </ion-list>
         </ion-card-content>
-        <ion-button  fill="clear" (click)="isModalOpen = false;softwareName='';analysis='';risk_level='';">Close</ion-button>
+        <ion-button
+          fill="clear"
+          (click)="isModalOpen = false;softwareName='';analysis='';risk_level='';"
+          >Close</ion-button
+        >
       </ion-card>
     </ng-template>
   </ion-modal>
