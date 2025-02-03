@@ -1,6 +1,10 @@
 import { Component } from "@angular/core";
 
-import { LoadingController, PopoverController } from "@ionic/angular";
+import {
+  AlertController,
+  LoadingController,
+  PopoverController,
+} from "@ionic/angular";
 
 import { HttpClient } from "@angular/common/http";
 
@@ -15,7 +19,11 @@ export class DocumentRiskPage {
   analysis = "";
   risk_level = "";
   selectedFile: File[] = [];
-  constructor(public http: HttpClient, public loadingCtrl: LoadingController) {}
+  constructor(
+    public http: HttpClient,
+    public loadingCtrl: LoadingController,
+    private alertController: AlertController
+  ) {}
   async analyzeSecurity() {
     this.analysis = "";
     this.risk_level = "";
@@ -44,8 +52,52 @@ export class DocumentRiskPage {
         console.log(data);
       });
   }
-  onDocsSelection($event) {
-    console.log($event.currentTarget.files);
-    this.selectedFile = $event.currentTarget.files;
+
+  async onDocsSelection($event) {
+    const duplicateDocs = [];
+    console.log("Selected files", $event.currentTarget.files);
+    if (this.selectedFile.length === 0) {
+      this.selectedFile = [...$event.currentTarget.files];
+      ($event.currentTarget as HTMLInputElement).value = null;
+    } else {
+      [...this.selectedFile].forEach((f) => {
+        [...$event.currentTarget.files].forEach((ff) => {
+          if (f.name === ff.name) {
+            duplicateDocs.push(ff.name);
+            console.log("Duplicate file found", ff);
+          } else {
+            this.selectedFile.push(ff);
+            console.log("File added", ff);
+          }
+        });
+      });
+      ($event.currentTarget as HTMLInputElement).value = null;
+      if (duplicateDocs.length > 0) {
+        const alert = await this.alertController.create({
+          message: `The following documents are already selected: ${duplicateDocs.join(
+            ", "
+          )}`,
+          buttons: ["OK"],
+        });
+        await alert.present();
+      }
+    }
+  }
+  async deleteFile(doc: File) {
+    const alert = await this.alertController.create({
+      message: `Are you sure you want to delete ${doc.name}?`,
+      buttons: [
+        {
+          text: "Yes",
+          handler: () => {
+            this.selectedFile = this.selectedFile.filter(
+              (f) => (f.name !== doc.name)
+            );
+          },
+        },
+        "No",
+      ],
+    });
+    await alert.present();
   }
 }

@@ -3,7 +3,10 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title><ion-icon name="document"></ion-icon>&nbsp;&nbsp;Document Cyber Risk</ion-title>
+    <ion-title
+      ><ion-icon name="document"></ion-icon>&nbsp;&nbsp;Document Cyber
+      Risk</ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
@@ -19,9 +22,7 @@
       <ion-card-header>
         <ion-card-title>Analyze Document Cyber Risk</ion-card-title>
       </ion-card-header>
-
       <ion-card-content>
-
         <div class="card">
           <h3>Upload Document</h3>
           <div class="drop_box">
@@ -29,30 +30,92 @@
               <h4>Select File here</h4>
             </header>
             <p>Files Supported: PDF, TEXT, DOC , DOCX</p>
-            <input #inputRef type="file" (change)="onDocsSelection($event)" multiple hidden accept=".doc,.docx,.pdf,.txt" id="fileID" style="display:none;">
-            <button (click)="inputRef.click()" class="btn">Select Documents</button>
+            <input
+              #inputRef
+              type="file"
+              (change)="onDocsSelection($event)"
+              multiple
+              hidden
+              accept=".doc,.docx,.pdf,.txt"
+              id="fileID"
+              style="display: none"
+            />
+            <button (click)="inputRef.click()" class="btn">
+              Select Documents
+            </button>
           </div>
         </div>
-
-        <br />
-        <ion-button expand="block" (click)="analyzeSecurity()" [disabled]="!documentName" >Analyze Document Security</ion-button >
-
-
       </ion-card-content>
     </ion-card>
   </div>
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Selected Documents (<small>{{selectedFile.length}}</small>)</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngIf="selectedFile.length > 0">
+        <ion-item-sliding *ngFor="let doc of selectedFile">
+          <ion-item>
+            <ion-label>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  flex-direction: row;
+                  align-items: center;
+                "
+              >
+                <h2>{{doc.name}} ( {{(doc.size/1000)/1000 | number}} MB )</h2>
+                <ion-button color="danger" (click)="deleteFile(doc)">
+                  <ion-icon slot="icon-only" ios="trash" md="trash"></ion-icon>
+                </ion-button>
+              </div>
+            </ion-label>
+          </ion-item>
+          <ion-item-options>
+            <ion-item-option color="danger">Delete</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <div
+        *ngIf="selectedFile.length === 0"
+        style="
+          display: flex;
+          justify-content: start;
+          flex-direction: row;
+          align-items: center;
+        "
+      >
+        No documents selected!
+        <ion-button fill="clear" (click)="inputRef.click()" size="small"
+          >Select Documents</ion-button
+        >
+      </div>
+
+      <ion-button
+        expand="block"
+        (click)="analyzeSecurity()"
+        [disabled]="selectedFile.length === 0"
+        >Analyze Document Security</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
 
   <ion-modal
     [(isOpen)]="isModalOpen"
     [initialBreakpoint]="0.7"
     (ionModalDidDismiss)="isModalOpen = false;documentName='';analysis='';risk_level='';"
-    [breakpoints]="[0, 0.7]"
+    [breakpoints]="[0, 0.7, 1]"
   >
     <ng-template>
       <ion-card>
         <ion-card-header>
-          <ion-card-title><span style="color: #ae7000;">{{documentName}}</span> Document Cyber Risk Details</ion-card-title>
+          <ion-card-title
+            ><span style="color: #ae7000">{{documentName}}</span> Document Cyber
+            Risk Details</ion-card-title
+          >
         </ion-card-header>
 
         <ion-card-content>
@@ -71,7 +134,11 @@
             </ion-item>
           </ion-list>
         </ion-card-content>
-        <ion-button  fill="clear" (click)="isModalOpen = false;documentName='';analysis='';risk_level='';">Close</ion-button>
+        <ion-button
+          fill="clear"
+          (click)="isModalOpen = false;documentName='';analysis='';risk_level='';"
+          >Close</ion-button
+        >
       </ion-card>
     </ng-template>
   </ion-modal>
