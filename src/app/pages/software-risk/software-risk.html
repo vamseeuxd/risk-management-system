@@ -88,9 +88,10 @@
                   <!-- ********** Severity ********** -->
 
                   <!-- ********** Severity ********** -->
-                  <ion-chip *ngIf="cvss_score <= 3" color="success" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
-                  <ion-chip *ngIf="cvss_score > 3 &&  cvss_score <= 7" color="warning" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
-                  <ion-chip *ngIf="cvss_score > 7" color="danger" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
+                  <ion-chip *ngIf="cvss_score <= 4" color="success" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
+                  <ion-chip *ngIf="cvss_score > 4 &&  cvss_score <= 7" color="warning" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
+                  <ion-chip *ngIf="cvss_score > 7 &&  cvss_score <= 8.9" color="danger" ><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
+                  <ion-chip *ngIf="cvss_score > 9" color="danger" style=" background-color: red; color: white; "><b>CVSS Score : </b>{{cvss_score}}</ion-chip >
                   <!-- ********** Severity ********** -->
                 </h2>
               </ion-label>
