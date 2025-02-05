@@ -38,7 +38,7 @@ export class SoftwareRiskPage {
     loading.present();
     this.http
       .post(
-        "https://a1b3-2406-7400-1c3-c726-5c3c-eefe-23fb-647e.ngrok-free.app/check_vulnerability",
+        "http://ec2-35-86-107-107.us-west-2.compute.amazonaws.com:8000/check_vulnerability",
         {
           product: this.softwareName,
           software: this.softwareTechStack,

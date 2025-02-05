@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title><ion-icon name="share-social"></ion-icon>&nbsp;&nbsp;Future Prediction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Future Prediction</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Analyze Future Prediction</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input
+          label="Enter Third Party Name"
+          label-placement="floating"
+          fill="outline"
+          [(ngModel)]="vendorName"
+          placeholder="Enter Third Party Name"
+        ></ion-input>
+        <br />
+        <ion-button
+          expand="block"
+          (click)="analyzeSecurity()"
+          [disabled]="!vendorName"
+          >Analyze Future Prediction</ion-button
+        >
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-modal
+    [(isOpen)]="isModalOpen"
+    [initialBreakpoint]="0.7"
+    (ionModalDidDismiss)="isModalOpen = false;vendorName='';analysis='';risk_level='';"
+    [breakpoints]="[0, 0.7, 1]"
+  >
+    <ng-template>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title
+            ><span uppercase style="color: #ae7000">{{vendorName|uppercase}} Future Prediction Details</span>
+            </ion-card-title
+          >
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                <h2><b>Analysis : </b></h2>
+                <h2>{{analysis}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h2>
+                  <ion-chip *ngIf="risk_level === 'LOW'" color="success"><b>Risk Level : </b>LOW</ion-chip>
+                  <ion-chip *ngIf="risk_level === 'MEDIUM'" color="warning"><b>Risk Level : </b>MEDIUM</ion-chip>
+                  <ion-chip *ngIf="risk_level === 'HIGH'" color="danger"><b>Risk Level : </b>HIGH</ion-chip>
+                </h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h2><b>Sources : </b></h2>
+                <div *ngFor="let source of sources">
+                  <span [innerHTML]="source"></span>
+                </div>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+        <ion-button
+          fill="clear"
+          (click)="isModalOpen = false;vendorName='';analysis='';risk_level='';"
+          >Close</ion-button
+        >
+      </ion-card>
+    </ng-template>
+  </ion-modal>
+</ion-content>

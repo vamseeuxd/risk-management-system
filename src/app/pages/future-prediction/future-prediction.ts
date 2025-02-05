@@ -5,8 +5,8 @@ import { AlertController, LoadingController } from "@ionic/angular";
 
 @Component({
   selector: "page-vendor-risk",
-  templateUrl: "vendor-risk.html",
-  styleUrls: ["./vendor-risk.scss"],
+  templateUrl: "future-prediction.html",
+  styleUrls: ["./future-prediction.scss"],
 })
 export class SpeakerListPage {
   vendorName = "";

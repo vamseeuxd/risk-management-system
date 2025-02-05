@@ -67,6 +67,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'future-prediction',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../future-prediction/future-prediction.module').then(m => m.SpeakerListModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/app/tabs/schedule',
         pathMatch: 'full'

@@ -46,7 +46,7 @@ export class ChatbotPage {
     this.userInput = "";
     this.http
       .post(
-        "https://a1b3-2406-7400-1c3-c726-5c3c-eefe-23fb-647e.ngrok-free.app/chat",
+        "http://ec2-35-86-107-107.us-west-2.compute.amazonaws.com:8000/chat",
         { query: userInput }
       )
       .subscribe(

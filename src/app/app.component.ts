@@ -41,6 +41,11 @@ export class AppComponent implements OnInit {
       icon: "document",
     },
     {
+      title: "Future Prediction",
+      url: "/app/tabs/future-prediction",
+      icon: "eye",
+    },
+    {
       title: "Chatbot",
       url: "/app/tabs/map",
       icon: "chatbox",

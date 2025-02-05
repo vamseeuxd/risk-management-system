@@ -48,7 +48,8 @@
             "optimization": false,
             "namedChunks": true,
             "allowedCommonJsDependencies": [
-              "localforage"
+              "localforage",
+              "showdown"
             ],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
@@ -135,6 +136,7 @@
                 "input": "src/",
                 "output": "/"
               },
+              "src/manifest.webmanifest",
               {
                 "glob": "**/*",
                 "input": "src/assets",

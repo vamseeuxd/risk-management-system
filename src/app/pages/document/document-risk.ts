@@ -131,7 +131,7 @@ export class DocumentRiskPage {
 
     this.http
       .post(
-        "https://a1b3-2406-7400-1c3-c726-5c3c-eefe-23fb-647e.ngrok-free.app/analyze_documents",
+        "http://ec2-35-86-107-107.us-west-2.compute.amazonaws.com:8000/analyze_documents",
         formData
       )
       .subscribe(
