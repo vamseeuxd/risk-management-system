@@ -96,12 +96,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build",
+            "buildTarget": "app:build",
+             "proxyConfig": "proxy.conf.json",
             "disableHostCheck": true
           },
           "configurations": {
             "production": {
-              "browserTarget": "app:build:production"
+               "proxyConfig": "proxy.conf.json",
+              "buildTarget": "app:build:production"
             },
             "ci": {}
           }
