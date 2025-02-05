@@ -42,7 +42,7 @@
   <ion-modal
     [(isOpen)]="isModalOpen"
     [initialBreakpoint]="0.7"
-    (ionModalDidDismiss)="isModalOpen = false;vendorName='';analysis='';risk_level='';"
+    (ionModalDidDismiss)="isModalOpen = false;vendorName='';explanation='';probability_score=0;"
     [breakpoints]="[0, 0.7, 1]"
   >
     <ng-template>
@@ -58,32 +58,24 @@
           <ion-list>
             <ion-item>
               <ion-label>
-                <h2><b>Analysis : </b></h2>
-                <h2>{{analysis}}</h2>
+                <h2><b>Explanation : </b></h2>
+                <h2>{{explanation}}</h2>
               </ion-label>
             </ion-item>
             <ion-item>
               <ion-label>
                 <h2>
-                  <ion-chip *ngIf="risk_level === 'LOW'" color="success"><b>Risk Level : </b>LOW</ion-chip>
-                  <ion-chip *ngIf="risk_level === 'MEDIUM'" color="warning"><b>Risk Level : </b>MEDIUM</ion-chip>
-                  <ion-chip *ngIf="risk_level === 'HIGH'" color="danger"><b>Risk Level : </b>HIGH</ion-chip>
+                  <ion-chip *ngIf="probability_score >= 80" color="success"><b>Probability Score : </b>{{probability_score}}</ion-chip>
+                  <ion-chip *ngIf="probability_score >= 50 && probability_score < 80" color="warning"><b>Probability Score : </b>{{probability_score}}</ion-chip>
+                  <ion-chip *ngIf="probability_score < 50" color="danger"><b>Probability Score : </b>{{probability_score}}</ion-chip>
                 </h2>
-              </ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>
-                <h2><b>Sources : </b></h2>
-                <div *ngFor="let source of sources">
-                  <span [innerHTML]="source"></span>
-                </div>
               </ion-label>
             </ion-item>
           </ion-list>
         </ion-card-content>
         <ion-button
           fill="clear"
-          (click)="isModalOpen = false;vendorName='';analysis='';risk_level='';"
+          (click)="isModalOpen = false;vendorName='';explanation='';probability_score=0;"
           >Close</ion-button
         >
       </ion-card>

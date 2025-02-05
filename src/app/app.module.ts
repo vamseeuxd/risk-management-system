@@ -16,7 +16,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({mode: 'md'}),
     IonicStorageModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
