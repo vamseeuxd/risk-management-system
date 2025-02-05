@@ -302,11 +302,38 @@ export class BarChartComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.createChart();
+      this.createCategoriesChart();
+      this.createOverAllriskChart();
     }, 500);
   }
 
-  createChart() {
+  createOverAllriskChart() {
+    const vendors = this.jsonData.dashboard.vendors;
+    const vendorNames = vendors.map(v => v.vendor_name);
+    const riskScores = vendors.map(v => v.overall_risk_score.total_score);
+
+    new Chart("overAllriskChart", {
+      type: 'bar',
+      data: {
+        labels: vendorNames,
+        datasets: [{
+          label: 'Overall Risk Score',
+          data: riskScores,
+          backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)'],
+          borderColor: 'black',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  }
+
+  createCategoriesChart() {
     const vendors = this.jsonData.dashboard.vendors;
     const categories = Object.keys(vendors[0].categories);
     const vendorNames = vendors.map((v) => v.vendor_name);
